@@ -44,6 +44,6 @@ workflows:
     python_V1andV2:
         jobs:
             - python_v1
-            - python_v2
+            - python_v2:
                 requires:
                     - python_v1
