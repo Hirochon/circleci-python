@@ -1,0 +1,2 @@
+hello = "はろはろ〜"
+print(hello)
