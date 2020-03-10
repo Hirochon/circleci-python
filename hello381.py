@@ -1,2 +1,2 @@
-hello = "はろはろ〜"
+hello = "はろはろだよ〜"
 print(hello)
