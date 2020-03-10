@@ -1,0 +1,49 @@
+version: 2.1
+description: "自分の趣くままにconfig.ymlを書いていくっっ！"
+
+exectors:
+    orano_python:
+        working_directory: ~/circleci-python
+        docker:
+            - image: ciecleci/python:3.8.1
+    bokuno_python:
+        working_directory: ~/circleci-python
+        docker:
+            - image: circleci/python:3.8.2
+
+commands:
+    print_shimasu_381:
+        description: "Pythonのバージョン3.8.1でprintするで！"
+        steps:
+            - run:
+                name: "Print Version 3.8.1!!"
+                command: |
+                    python3 hello381.py
+    print_surude_382:
+        description: "Pythonのバージョン3.8.2でprintします。"
+        steps:
+            - run:
+                name: "Print  Version 3.8.2!!"
+                command: |
+                    python3 good382.py
+
+jobs:
+    python_v1:
+        exector: orano_python
+        steps:
+            - checkout
+            - print_shimasu_381
+    python_v2:
+        exector: bokuno_python
+        steps:
+            - checkout
+            - print_surude_382
+
+workflows:
+    version: 2
+    python_V1andV2:
+        jobs:
+            - python_v1
+            - python_v2
+                requires:
+                    - python_v1
